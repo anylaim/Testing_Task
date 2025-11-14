@@ -1,0 +1,47 @@
+# CLion IDE
+.idea/
+cmake-build-*/
+cmake-build-*/
+CMakeSettings.json
+
+# CLion 2020.3+
+*.iws
+*.iml
+*.ipr
+
+# CLion workspace files
+workspace.xml
+
+# CLion coverage
+*.gcda
+*.gcno
+*.gcov
+
+# CLion bookmarks
+bookmarks.xml
+
+# CLion tasks
+tasks.xml
+
+# CLion misc
+/dictionaries/
+/shelf/
+/.cmake/
+/.localhistory/
+
+# Сборка
+build/
+*.deb
+*.rpm
+
+# Бинарники
+Testing_Task
+epoll_server
+
+# Логи
+*.log
+*.out
+
+# Системные
+.DS_Store
+Thumbs.db

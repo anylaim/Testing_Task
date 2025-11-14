@@ -1,0 +1,38 @@
+#!/bin/bash
+
+set -e
+
+case "$1" in
+    configure)
+        if ! getent group testing-task >/dev/null; then
+            groupadd --system testing-task
+        fi
+
+        if ! getent passwd testing-task >/dev/null; then
+            useradd --system --gid testing-task --home-dir /var/lib/Testing_Task --shell /bin/false testing-task
+        fi
+
+        mkdir -p /var/log/Testing_Task
+        mkdir -p /var/lib/Testing_Task
+
+        chown testing-task:testing-task /var/log/Testing_Task
+        chown testing-task:testing-task /var/lib/Testing_Task
+        chmod 755 /var/log/Testing_Task
+        chmod 755 /var/lib/Testing_Task
+
+        systemctl daemon-reload || true
+        systemctl enable Testing_Task.service || true
+
+        echo "Testing Task installed successfully"
+        ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+        ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+        ;;
+esac
+
+exit 0

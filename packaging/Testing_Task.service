@@ -1,0 +1,19 @@
+[Unit]
+Description=Testing Task Epoll Server
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/Testing_Task 8080 --threads 4 --shutdown-token
+WorkingDirectory=/usr/bin
+Restart=always
+RestartSec=1
+User=testing-task
+Group=testing-task
+LimitNOFILE=100000
+Environment=ENV=prod
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
