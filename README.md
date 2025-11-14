@@ -10,18 +10,20 @@
 
 ## Установка
 
-### Установка из .deb пакета
-sudo dpkg -i testing-task-1.0.0-Linux.deb
-sudo systemctl start Testing_Task
-sudo systemctl status Testing_Task
-Сборка из исходников
-bash
-git clone <repository>
+### Сборка из исходников
+
+git clone https://github.com/anylaim/Testing_Task
 cd Testing_Task
 mkdir build && cd build
 cmake ..
 make deb-package
 sudo dpkg -i testing-task-1.0.0-Linux.deb
+
+### Установка из .deb пакета
+sudo dpkg -i testing-task-1.0.0-Linux.deb
+sudo systemctl start Testing_Task
+sudo systemctl status Testing_Task
+
 
 # Запуск с параметрами по умолчанию
 Порт: 8080
