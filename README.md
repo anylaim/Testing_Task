@@ -63,7 +63,9 @@ sudo nohup /usr/bin/Testing_Task 9090 --threads 8 --shutdown-token mytoken &
 Options:
 
 PORT - Server port (default: 8080)
+
 --threads NUM - Number of threads (default: hardware_concurrency)
+
 --shutdown-token TOKEN - Shutdown token (default: qwerty)
 
 # Примеры параметров:
