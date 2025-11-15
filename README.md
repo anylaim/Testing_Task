@@ -14,24 +14,19 @@
 ```bash
 
 git clone https://github.com/anylaim/Testing_Task
-
 cd Testing_Task
-
 mkdir build && cd build
-
 cmake ..
-
 make deb-package
-
 sudo dpkg -i testing-task-1.0.0-Linux.deb
 ```
 
 ### Установка из .deb пакета
+```bash
 sudo dpkg -i testing-task-1.0.0-Linux.deb
-
 sudo systemctl start Testing_Task
-
 sudo systemctl status Testing_Task
+```
 
 
 # Запуск с параметрами по умолчанию
@@ -61,8 +56,9 @@ sudo nohup /usr/bin/Testing_Task 9090 --threads 8 --shutdown-token mytoken &
 
 ### Параметры запуска
 Формат команды:
-
+```bash
 /usr/bin/Testing_Task [OPTIONS]
+```
 
 Options:
 
@@ -72,41 +68,41 @@ PORT - Server port (default: 8080)
 
 # Примеры параметров:
 
-# Все по умолчанию
+### Все по умолчанию
 ```bash
 /usr/bin/Testing_Task
 ```
-# Кастомный порт
+### Кастомный порт
 ```bash
 /usr/bin/Testing_Task 9090
 ```
-# Полная кастомизация
+### Полная кастомизация
 ```bash
 /usr/bin/Testing_Task 9090 --threads 8 --shutdown-token mysecret
 ```
 # Управление сервисом
 
-# Запуск
+### Запуск
 ```bash
 sudo systemctl start Testing_Task
 ```
-# Остановка
+### Остановка
 ```bash
 sudo systemctl stop Testing_Task
 ```
-# Перезапуск
+### Перезапуск
 ```bash
 sudo systemctl restart Testing_Task
 ```
-# Статус
+### Статус
 ```bash
 sudo systemctl status Testing_Task
 ```
-# Логи
+### Логи
 ```bash
 sudo journalctl -u Testing_Task -f
 ```
-# Включение автозапуска
+### Включение автозапуска
 ```bash
 sudo systemctl enable Testing_Task
 ```
@@ -122,7 +118,7 @@ sudo dpkg -r testing-task
 ```bash
 sudo dpkg -i testing-task-1.0.0-Linux.deb 
 ```
-# ========== Или принудительно обновить ==========
+# ===== Или принудительно обновить =====
 
 ### Переустановить поверх существующей
 ```bash
