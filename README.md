@@ -13,15 +13,22 @@
 ### Сборка из исходников
 
 git clone https://github.com/anylaim/Testing_Task
+
 cd Testing_Task
+
 mkdir build && cd build
+
 cmake ..
+
 make deb-package
+
 sudo dpkg -i testing-task-1.0.0-Linux.deb
 
 ### Установка из .deb пакета
 sudo dpkg -i testing-task-1.0.0-Linux.deb
+
 sudo systemctl start Testing_Task
+
 sudo systemctl status Testing_Task
 
 
@@ -37,14 +44,14 @@ sudo systemctl status Testing_Task
 
 # Запуск с кастомными параметрами
 
-# Остановите systemd сервис
+- Остановите systemd сервис
 sudo systemctl stop Testing_Task
 
-# Запустите вручную с нужными параметрами
-sudo /usr/bin/Testing_Task --port 9090 --threads 8 --shutdown-token mytoken
+- Запустите вручную с нужными параметрами
+sudo /usr/bin/Testing_Task 9090 --threads 8 --shutdown-token mytoken
 
-# Или в фоне
-sudo nohup /usr/bin/Testing_Task --port 9090 --threads 8 --shutdown-token mytoken &
+- Или в фоне
+sudo nohup /usr/bin/Testing_Task 9090 --threads 8 --shutdown-token mytoken &
 
 # Остановка сервера
 - Через команду shutdown
@@ -57,9 +64,6 @@ sudo systemctl stop Testing_Task
 
 # Если сервис не отвечает
 sudo systemctl kill Testing_Task
-
-# Или найти процесс
-sudo pkill -f Testing_Task
 
 
 ### Параметры запуска
@@ -79,10 +83,10 @@ Options:
 /usr/bin/Testing_Task
 
 # Кастомный порт
-/usr/bin/Testing_Task --port 9090
+/usr/bin/Testing_Task 9090
 
 # Полная кастомизация
-/usr/bin/Testing_Task --port 9090 --threads 8 --shutdown-token mysecret
+/usr/bin/Testing_Task 9090 --threads 8 --shutdown-token mysecret
 
 # Управление сервисом
 
