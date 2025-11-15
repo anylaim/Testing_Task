@@ -1,18 +1,14 @@
-#ifndef TESTING_TASK_CLIENT_H
-#define TESTING_TASK_CLIENT_H
-
-
 #pragma once
 #include <string>
 #include <netinet/in.h>
 
+/**
+ * Структура для хранения информации о TCP клиенте
+ * Используется для отслеживания состояния подключенных клиентов
+ */
 struct Client
 {
-    int fd;
-    sockaddr_in addr;
-    std::string buffer;
+    int fd;                      ///< Файловый дескриптор клиентского сокета
+    sockaddr_in addr;            ///< Адресная информация клиента (IP и порт)
+    std::string buffer;          ///< Буфер для накопления данных от клиента
 };
-
-
-
-#endif //TESTING_TASK_CLIENT_H

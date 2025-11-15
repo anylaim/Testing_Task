@@ -1,7 +1,3 @@
-#ifndef TESTING_TASK_EPOLLSERVER_H
-#define TESTING_TASK_EPOLLSERVER_H
-
-
 #pragma once
 #include <string>
 #include <unordered_map>
@@ -48,7 +44,3 @@ private:
     size_t tcpCurrent_ = 0;
     mutable std::mutex coutMutex_;
 };
-
-
-
-#endif

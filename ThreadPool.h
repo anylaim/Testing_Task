@@ -1,7 +1,3 @@
-#ifndef TESTING_TASK_THREADPOOL_H
-#define TESTING_TASK_THREADPOOL_H
-
-
 #pragma once
 #include <thread>
 #include <vector>
@@ -25,5 +21,3 @@ private:
     std::condition_variable condition_;
     std::atomic<bool> stop_;
 };
-#endif
-
