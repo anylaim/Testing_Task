@@ -36,9 +36,10 @@ sudo systemctl status Testing_Task
 
 Токен:
 
+```bash
 sudo systemctl start Testing_Task
 sudo systemctl status Testing_Task
-
+```
 # Запуск с кастомными параметрами
 
 - Остановите systemd сервис
