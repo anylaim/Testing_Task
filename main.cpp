@@ -11,7 +11,7 @@ int main(int argc, char* argv[]) {
     char* end;
     // Парсинг порта из первого аргумента
     int port = std::strtol(argv[1], &end, 10);
-    // Валидация порта: должен быть числом в диапазоне 1-65535
+    // Валидация порта
     if (*end != '\0' || port <= 0 || port > 65535) {
         std::cerr << "Error: Invalid port number: " << argv[1] << "\n";
         return 1;

@@ -85,11 +85,11 @@ void EpollServer::initSockets() {
     int opt = 1;
     setsockopt(listenFd_, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
 
-    // Настраиваем адрес для привязки
+    // Настраиваем адрес для привязки сокета
     sockaddr_in addr{};
-    addr.sin_family = AF_INET;
-    addr.sin_addr.s_addr = INADDR_ANY;  // Принимаем соединения с любых интерфейсов
-    addr.sin_port = htons(port_);       // Порт в сетевом порядке байт
+    addr.sin_family = AF_INET;                    // Семейство адресов - IPv4
+    addr.sin_addr.s_addr = INADDR_ANY;           // Принимаем подключения со всех сетевых интерфейсов
+    addr.sin_port = htons(port_);                // Порт: htons() преобразует число в сетевой порядок байт (big-endian)
 
     // Привязываем сокеты к порту
     if (bind(listenFd_, (sockaddr*)&addr, sizeof(addr)) < 0) {
@@ -286,8 +286,7 @@ void EpollServer::handleUdpRead() {
     socklen_t len = sizeof(peer);
 
     // Читаем датаграмму
-    ssize_t n = recvfrom(udpFd_, buf, sizeof(buf) - 1, 0,
-                         (sockaddr*)&peer, &len);
+    ssize_t n = recvfrom(udpFd_, buf, sizeof(buf) - 1, 0, (sockaddr*)&peer, &len);
     if (n <= 0) return;
     buf[n] = '\0';
 
